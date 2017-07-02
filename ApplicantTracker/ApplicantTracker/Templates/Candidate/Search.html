@@ -1,0 +1,356 @@
+﻿
+<div ng-controller="CandidateController" ng-init="LoadSearchItems()">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <span class="label" style="color:red">* Error Message</span>
+        </div>
+    </div>
+    <div class="row col-border">
+
+
+        <div class="col-md-2"></div>
+        <div class="col-md-6 text-left">
+            <input class="form-control text-box single-line totalWidth noBorder" id="keyword" name="keyword" type="text" placeholder="Keyword" style="display:inline; width:100%" ng-model="Keyword">
+        </div>
+        <div class="col-md-4 text-left">
+            <button type="button" class="btn btn-info btnColor" ng-click="SearchCandidate()">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+            <button type="button" class="btn btn-info btnColor" ng-click="open('md')">
+                <span class="glyphicon glyphicon-plus"></span> Add New
+            </button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-border col-md-2">
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Freshness</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsDaysExpanded, 'glyphicon-chevron-down': !IsDaysExpanded}" ng-click="ToggleDays()"></i></span>
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsDaysExpanded">
+                        <div class="panel-body">
+                            <!--<div class="checkbox" ng-repeat="item in SearchItems.Statuses | filter:{Show:true,IsSelected:true}">-->
+                            <!--<div class="checkbox" ng-repeat="item in SearchItems.Statuses | filter:showItems">
+
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>-->
+                            <select ng-options="item.Name for item in SearchItems.Days" class="form-control totalWidth" ng-model="SearchItems.selectedDay" style="display:inline"></select>
+                            <!--<select data-ng-options="item.Name for item in SearchItems.Days" class="form-control totalWidth" data-ng-model="lastDay" style="display:inline"></select>-->
+
+                            <!--<div class="text-right">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreStatus()" title="More">
+                                    ..more
+                                </a>
+
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Status</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsStatusExpanded, 'glyphicon-chevron-down': !IsStatusExpanded}" ng-click="ToggleStatus()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsStatusExpanded">
+                        <div class="panel-body">
+                            <!--<div class="checkbox" ng-repeat="item in SearchItems.Statuses | filter:{Show:true,IsSelected:true}">-->
+                            <div class="checkbox" ng-repeat="item in SearchItems.Statuses | filter:showItems">
+
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+
+                            <div class="text-right" ng-show="IsMoreStatus">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreStatus()" title="More">
+                                    ..more
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Role</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsRoleExpanded, 'glyphicon-chevron-down': !IsRoleExpanded}" ng-click="ToggleRole()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsRoleExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.Roles | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+                            <div class="text-right">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreRoles()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Industry</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsIndustryExpanded, 'glyphicon-chevron-down': !IsIndustryExpanded}" ng-click="ToggleIndustry()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsIndustryExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.Industry | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+
+                            <div class="text-right" ng-show="IsMoreIndustry">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreIndustry()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Company</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsCompanyExpanded, 'glyphicon-chevron-down': !IsCompanyExpanded}" ng-click="ToggleCompany()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsCompanyExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.Companies | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+
+                            <div class="text-right" ng-show="IsMoreCompany">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreCompany()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Experience</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsExperienceExpanded, 'glyphicon-chevron-down': !IsExperienceExpanded}" ng-click="ToggleExperience()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsExperienceExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.Experiences | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+
+                            <div class="text-right" ng-show="IsMoreExperience">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreExperience()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Created By</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsCreatedByExpanded, 'glyphicon-chevron-down': !IsCreatedByExpanded}" ng-click="ToggleCreatedBy()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsCreatedByExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.CreatedBy | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+
+                            <div class="text-right" ng-show="IsMoreCreatedBy">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreCreatedBy()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Salary</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsSalaryExpanded, 'glyphicon-chevron-down': !IsSalaryExpanded}" ng-click="ToggleSalary()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsSalaryExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.Salaries | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+                            <div class="text-right" ng-show="IsMoreSalary">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreSalary()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="panel panel-filter">
+                    <div class="panel-heading">
+                        <h3 class="panel-title myfont">Location</h3>
+                        <span class="pull-right clickable"><i class="myfont glyphicon" ng-class="{'glyphicon-chevron-up': IsLocationExpanded, 'glyphicon-chevron-down': !IsLocationExpanded}" ng-click="ToggleLocation()"></i></span>
+
+                    </div>
+                    <div class="panel-collapse collapse in" ng-show="IsLocationExpanded">
+                        <div class="panel-body">
+                            <div class="checkbox" ng-repeat="item in SearchItems.Locations | filter:showItems">
+                                <label class="myfont">
+                                    <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                    {{item.Name}}
+                                </label>
+                            </div>
+
+                            <div class="text-right" ng-show="IsMoreLocation">
+
+                                <a href="#" ng-click="$event.preventDefault();ShowMoreLocation()" title="More">
+                                    ...more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <button type="button" class="btn btn-info btnColor" ng-click="SearchCandidate()">
+                    <span class="glyphicon glyphicon-filter"></span> Filter
+                </button>
+
+            </div>
+
+
+
+        </div>
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Search Result</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <div ng-show="IsLoading" style="text-align:center">
+                                    <img src="../../Images/Loader.gif" style="width:10%;height:10%" />
+                                    <!--<img src="../"-->
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered bootstrap-datatable datatable responsive dataTable table-inverse" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" ng-show="!IsLoading">
+                                <thead>
+
+                                    <tr role="row">
+                                        <th align="center" class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 15%;" aria-label="CandidateId: activate to sort column ascending">Candidate Id</th>
+                                        <th align="center" class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 17%;" aria-label="FirstName activate to sort column descending">First Name</th>
+                                        <th align="center" class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 17%;" aria-label="LastName: activate to sort column ascending">Last Name</th>
+                                        <th align="center" class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 17%;" aria-label="MobileNumber: activate to sort column ascending">Mobile Number</th>
+                                        <th align="center" class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 17%;" aria-label="Status: activate to sort column ascending">Status</th>
+                                        <th align="center" class="center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 17%;">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                    <tr class="odd" ng-repeat="candidate in Candidates">
+                                        <td align="center" class="center">{{candidate.CandidateId}}</td>
+                                        <td align="center" class="center">{{candidate.FirstName}}</td>
+                                        <td align="center" class="center ">{{candidate.LastName}}</td>
+                                        <td align="center" class="center ">{{candidate.MobileNumber}}</td>
+                                        <td align="center" class="center ">
+                                            <span class="label-primary label label-default">{{candidate.CandidateStatus}}</span>
+                                        </td>
+                                        <td align="center" class="center">
+                                            <a class="btn btn-success btn-circle" href="#" ng-click="$event.preventDefault();view(candidate,'lg')" title="View">
+                                                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                                            </a>
+                                            <a class="btn btn-info btn-circle btnOrange" href="#" ng-click="$event.preventDefault();Edit(candidate,'lg')" ng-show="candidate.IsEdit" title="Edit">
+                                                <i class="glyphicon glyphicon-edit icon-white"></i>
+                                            </a>
+                                            <!--<a class="btn btn-danger btn-circle" href="#" ng-click="$event.preventDefault();view('lg')" title="Delete">
+                                                <i class="glyphicon glyphicon-trash icon-white"></i>
+                                            </a>-->
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">           
+        </div>
+        <div class="col-md-2">            
+            <a type="button" href="" data-ng-click="downloadSearchReport1()"><span class="text-success"><i class="fa fa-file-excel-o fa-1x"></i>Export Report</span></a>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,201 @@
+﻿<!--<div class="modal-header" style="background-color:#428bca;color:#ffffff">-->
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">x</button>
+    <h4 class="modal-title">Create Candidate</h4>
+    <!--<span class="label text-right" style="color:red">* {{ErrorMessage}}</span>-->
+</div>
+<div class="col-md-12 margin-top-05">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Personal Information</h3>
+            <!--<span class="label text-right" style="color:red">* {{ErrorMessage}}</span>-->
+        </div>
+        <div class="panel-body">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">First Name :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <!--<input class="form-control text-box  single-line totalWidth" id="FirstName" name="FirstName" type="text" ng-model="Candidate.FirstName" ng-class="{'createError':'firstNameError'}">-->
+                        <input class="form-control text-box  single-line totalWidth" id="FirstName" name="FirstName" type="text" ng-model="Candidate.FirstName">
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Middle Name :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="MiddleName" name="LastName" type="text" ng-model="Candidate.MiddleName">
+                    </div>
+
+                </div>
+                <div class="row margin-top-02">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">LastName :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <!--<input class="form-control text-box single-line totalWidth" id="LastName" name="LastName" type="text" ng-model="Candidate.LastName" ng-class="{'createError':lastNameError=='true'}">-->
+
+                        <input class="form-control text-box single-line totalWidth" id="LastName" name="LastName" type="text" ng-model="Candidate.LastName">
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Date Of Birth :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <!--<input class="form-control text-box single-line totalWidth" id="DateOfBirth" name="DateOfBirth" type="date" ng-model="Candidate.DateOfBirth" ng-class="{'createError':'!dobError'}">-->
+                        <input class="form-control text-box single-line totalWidth" id="DateOfBirth" name="DateOfBirth" type="date" ng-model="Candidate.DateOfBirth">
+                    </div>
+                </div>
+                <div class="row margin-top-02">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Mobile Number :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="MobileNumber" name="MobileNumber" type="number" ng-model="Candidate.MobileNumber">
+
+                        <!--<input class="form-control text-box single-line totalWidth" id="MobileNumber" name="MobileNumber" type="number" ng-model="Candidate.MobileNumber" ng-class="{'createError':'mobileNumberError'}">-->
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Alternate Number :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="AlterNateNumber" name="AlterNateNumber" type="number" ng-model="Candidate.AlterNateNumber">
+                    </div>
+                </div>
+                <div class="row margin-top-02">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Primary Email :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <!--<input class="form-control text-box single-line totalWidth" id="Email" name="Email" type="email" ng-model="Candidate.Email" ng-class="{'createError':'emailError'}">-->
+                        <input class="form-control text-box single-line totalWidth" id="Email" name="Email" type="email" ng-model="Candidate.Email">
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Secondary Email :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="Email" name="Email" type="email" ng-model="Candidate.SecondaryEmail">
+                    </div>
+                </div>
+                <div class="row margin-top-02">
+                    <!--<div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Qualification :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="Qualification" name="Qualification" type="text" ng-model="Candidate.Qualification">
+                    </div>-->
+
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Experience :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <div class="col-md-6 text-left padCtrl padCtrlLeft">
+                            <select ng-options="exp.name for exp in ExperienceInYears" class="form-control totalWidth" ng-model="Candidate.selectedExperienceInYears" style="display:inline"></select>
+                        </div>
+                        <div class="col-md-6 text-right padCtrl padCtrlLeft">
+                            <select ng-options="exp.name for exp in ExperienceInMonths" class="form-control totalWidth" ng-model="Candidate.selectedExperienceInMonths" style="display:inline"></select>
+                            <!--<input class="form-control text-box  single-line" id="Experience" name="Qualification" type="text" ng-model="Candidate.Experience">-->
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">SkillSet :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="SkillSet" name="SkillSet" type="text" ng-model="Candidate.SkillSet">
+                    </div>
+                </div>
+                <div class="row margin-top-02">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Current Industry :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <div class="col-md-12 text-left padCtrl padCtrlLeft totalWidth">
+                            <select ng-options="ind.Name for ind in Industries" class="form-control totalWidth" ng-model="Candidate.selectedIndustry" style="display:inline"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Current Employer :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="CurrentEmployer" name="CurrentEmployer" type="text" ng-model="Candidate.CurrentEmployer">
+                    </div>
+                </div>
+                <div class="row margin-top-02">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Current CTC :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <div class="col-md-6 text-left left padCtrl padCtrlLeft">
+                            <!--<select name="salarylacs" id="salarylacs"
+                            ng-options="option.name for option in SalaryInLacs track by option.id"
+                            ng-model="selectedSalaryInLacs" class="form-control totalWidth"></select>-->
+                            <select ng-options="sal.name for sal in SalaryInLacs" class="form-control totalWidth" ng-model="Candidate.selectedSalaryInLacs" style="display:inline"></select>
+                        </div>
+                        <div class="col-md-6 text-left right padCtrl padCtrlLeft">
+                            <select ng-options="sal.name for sal in SalaryInThousands" class="form-control totalWidth" ng-model="Candidate.selectedSalaryInThousands" style="display:inline"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Notice Period :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="NoticePeriod" name="NoticePeriod" type="text" ng-model="Candidate.NoticePeriod">
+                    </div>
+
+                    <!--<select ng-model="SalaryInLac"
+                            ng-options="state.lookupCode as state.description for state in lov_state">
+
+                    </select>-->
+                    <!--<select id="disabledSelect" class="form-control" style="display:inline">
+                        <option value="0">Lacs</option>
+                        <option value="1"></option>
+                        <option value="2">Pending</option>
+                        <option value="3">Offer Accepted</option>
+                        <option value="4">Offer Rejected</option>
+                    </select>-->
+                </div>
+                <!--<input class="form-control text-box col-md-4 single-line" id="CurrentCTC" name="CurrentCTC" type="text" ng-model="Candidate.CurrentCTC">-->
+                <!--</div>-->
+
+                <div class="row margin-top-02">
+
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Current Designation :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="CurrentDesignation" name="CurrentDesignation" type="text" ng-model="Candidate.CurrentDesignation">
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Current Location :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="CurrentLocation" name="CurrentLocation" type="text" ng-model="Candidate.CurrentLocation">
+                    </div>
+
+                </div>
+
+                <div class="row margin-top-02">
+
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Home Town :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="HomeTown" name="HomeTown" type="text" ng-model="Candidate.HomeTown">
+                    </div>
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label" for="Name">Source :</label>
+                    </div>
+                    <div class="col-md-4 text-left padCtrlLeft">
+                        <input class="form-control text-box single-line totalWidth" id="Source" name="Source" type="text" ng-model="Candidate.Source">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary btnRounded" ng-click="Create()">Create</button>
+    <!--<button type="button" class="btn btn-primary btnRounded" ng-click="showAlert('sm')">Close</button>-->
+    <button type="button" class="btn btn-primary btnRounded" ng-click="cancel()">Close</button>
+</div>

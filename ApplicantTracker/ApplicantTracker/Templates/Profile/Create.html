@@ -1,0 +1,195 @@
+﻿<div ng-init="LoadDropdownItems()">
+
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()">x</button>
+        <h4 class="modal-title">Create Profile</h4>
+    </div>
+
+    <div class="col-md-12 margin-top-05">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Profile Information</h3>
+                <!--<span class="label text-right" style="color:red">* {{ErrorMessage}}</span>-->
+            </div>
+            <div class="panel-body">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Company Name</label>
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="col-md-12 text-left padCtrl totalWidth">
+                                <select ng-options="Company.Name for Company in Companies" class="form-control totalWidth"
+                                        ng-model="Profile.SelectedCompany" style="display:inline"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Industry</label>
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="col-md-12 text-left padCtrl totalWidth">
+                                <select ng-options="Industry.Name for Industry in Industries" class="form-control totalWidth"
+                                        ng-model="Profile.SelectedIndustry" style="display:inline"></select>
+                            </div>
+                        </div>
+                        <!--<input class="form-control text-box  col-md-4 single-line"
+                        id="CompanyName"
+                        name="CompanyName"
+                        type="text" ng-model="Profile.CompanyName">-->
+                        <!--<label class="control-label col-md-2 text-left">Company Details</label>
+                        <input class="form-control text-box  col-md-4 single-line"
+                               id="CompanyDetails"
+                               name="CompanyDetails"
+                               type="text"
+                               ng-model="Profile.CompanyDetails">-->
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CompanyDetails" data-valmsg-replace="true"></span>
+
+                    </div>
+                    <div class="row margin-top-02">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Date Of Interview</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <div class="col-md-12 text-left padCtrl padCtrlLeft totalWidth">
+                                <input class="form-control text-box single-line"
+                                       id="DateOfInterview"
+                                       name="DateOfInterview"
+                                       type="date"
+                                       ng-model="Profile.DateOfInterview">
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Current Status</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <div class="col-md-12 text-left padCtrl padCtrlLeft totalWidth">
+                                <input class="form-control text-box  col-md-4 single-line"
+                                       id="CurrentStatus"
+                                       name="CurrentStatus"
+                                       type="text"
+                                       ng-model="Profile.CurrentStatus">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-top-02">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">HR Copy</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  single-line"
+                                   id="HRCopy"
+                                   name="HRCopy"
+                                   type="text"
+                                   ng-model="Profile.HRCopy">
+                        </div>
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Applied Position For</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  single-line"
+                                   id="AppliedPositionFor"
+                                   name="AppliedPositionFor"
+                                   type="text"
+                                   ng-model="Profile.AppliedPositionFor">
+                        </div>
+                    </div>
+                    <div class="row margin-top-02">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Interviewer</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box single-line"
+                                   id="Interviewer"
+                                   name="Interviewer"
+                                   type="text"
+                                   ng-model="Profile.Interviewer">
+                        </div>
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Interviewer Contact Number</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  single-line"
+                                   id="InterviewerContact"
+                                   name="InterviewerContact"
+                                   type="text"
+                                   ng-model="Profile.InterviewerContact">
+                        </div>
+                    </div>
+                    <div class="row margin-top-02">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Company Contact Number</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box single-line"
+                                   id="CompanyContact"
+                                   name="CompanyContact"
+                                   type="text"
+                                   ng-model="Profile.CompanyContact"
+                                   placeholder="Enter Company contact number">
+                        </div>
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Reference Type</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box single-line"
+                                   id="ReferenceType"
+                                   name="ReferenceType"
+                                   type="text"
+                                   ng-model="Profile.ReferenceType"
+                                   placeholder="Enter Reference Type">
+                        </div>
+                    </div>
+                    <div class="row margin-top-02">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Recruiter Name</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  single-line"
+                                   id="RecruiterName"
+                                   name="RecruiterName"
+                                   type="text"
+                                   ng-model="Profile.RecruiterName"
+                                   placeholder="Enter Recruiter's Name'">
+                        </div>
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Recruiter's Contact Number</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box single-line"
+                                   id="RecruiterContact"
+                                   name="RecruiterContact"
+                                   type="text"
+                                   ng-model="Profile.RecruiterContact"
+                                   placeholder="Enter Recruiter's Contact number'">
+                        </div>
+                    </div>
+                    <div class="row margin-top-02">
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label">Team Lead Name</label>
+                        </div>
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  single-line"
+                                   id="TeamLeadName"
+                                   name="TeamLeadName"
+                                   type="text"
+                                   ng-model="Profile.TeamLeadName"
+                                   placeholder="Enter team lead Name">
+                        </div>
+                    </div>
+
+                    <!--<div class="row margin-top-02">
+                        <div class="col-md-offset-7 col-md-6">
+                            <input type="button" value="Create" class="btn btn-default" ng-click="SaveProfile()">
+                            <input type="button" value="Cancel" class="btn btn-default" ng-click="cancel()">
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <input type="button" value="Create" class="btn btn-primary btnRounded" ng-click="SaveProfile()">
+        <input type="button" value="Cancel" class="btn btn-primary btnRounded" ng-click="cancel()">
+    </div>
+</div>

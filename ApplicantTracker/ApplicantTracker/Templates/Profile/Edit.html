@@ -1,0 +1,223 @@
+﻿
+<div class="modal-header" ng-init="LoadEdit()">
+    <button type="button" class="close" ng-click="cancel()">x</button>
+    <div class="row" style="margin-right:0px">
+        <h4 class="col-md-4">Profile Id :{{Profile.ProfileId}}</h4>
+        <!--<label class="modal-title control-label text-right">Candidate Id :{{Profile.CurrentStatus}}</label>-->
+        <div class="col-md-8 text-right">
+            <label class="modal-title control-label text-right">Status :</label>
+            <select ng-options="status.Name for status in Profile.Statuses" class="form-control" ng-model="Profile.selectedStatus" style="display:inline"></select>
+            <!--<select id="disabledSelect" class="form-control" style="display:inline">
+                <option value="0">Please Select</option>
+                <option value="1">Interview Scheduled</option>
+                <option value="2">Pending</option>
+                <option value="3">Offer Accepted</option>
+                <option value="4">Offer Rejected</option>
+            </select>-->
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 margin-top-05">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit Profile Information</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2 text-right padCtrlLeft">
+                        <label class="control-label">Company Name</label>
+                    </div>
+                    <div class="col-md-4 text-left">
+                        <div class="col-md-12 text-left padCtrl totalWidth">
+                            <select ng-options="Company.Name for Company in Companies" class="form-control totalWidth"
+                                    ng-model="Profile.SelectedCompany" style="display:inline"></select>
+                        </div>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CompanyName" data-valmsg-replace="true"></span>
+                    </div>
+                   
+                
+
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Industry</label>
+                </div>
+                 <div class="col-md-4 text-right">
+                    <div class="col-md-12 text-left padCtrl totalWidth">
+                        <select ng-options="Industry.Name for Industry in Industries" class="form-control totalWidth"
+                                ng-model="Profile.SelectedIndustry" style="display:inline"></select>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CompanyDetails" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row margin-top-02">
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Date Of Interview</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="DateOfInterview"
+                           name="DateOfInterview"
+                           ng-hide="IsProfileEdit"
+                           type="date"
+                           ng-model="Profile.DateOfInterview">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="DateOfInterview" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Current Status</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="CurrentStatus"
+                           name="CurrentStatus"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.CurrentStatus">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CurrentStatus" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="row margin-top-02">
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">HR Copy</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="HRCopy"
+                           name="HRCopy"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.HRCopy">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="HRCopy" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Applied Position For</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="AppliedPositionFor"
+                           name="AppliedPositionFor"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.AppliedPositionFor">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="AppliedPositionFor" data-valmsg-replace="true"></span>
+
+                </div>
+            </div>
+
+            <div class="row margin-top-02">
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Interviewer</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="Interviewer"
+                           name="Interviewer"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.Interviewer">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Interviewer" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Interviewer Contact Number</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="InterviewerContact"
+                           name="InterviewerContact"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.InterviewerContact">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="InterviewerContact" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="row margin-top-02">
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Company Contact Number</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="CompanyContact"
+                           name="CompanyContact"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.CompanyContact"
+                           placeholder="Enter Company contact number">
+                </div>
+                <span class="field-validation-valid text-danger" data-valmsg-for="CompanyContact" data-valmsg-replace="true"></span>
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Reference Type</label>
+                </div>
+                <!--<label class="control-label" id="lbl_RefTypeVal" ng-hide="IsProfileEdit" />-->
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="ReferenceType"
+                           name="ReferenceType"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.ReferenceType"
+                           placeholder="Enter Reference Type">
+                </div>
+                <span class="field-validation-valid text-danger" data-valmsg-for="ReferenceType" data-valmsg-replace="true"></span>
+
+            </div>
+            <div class="row margin-top-02">
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Recruiter Name</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="RecruiterName"
+                           name="RecruiterName"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.RecruiterName"
+                           placeholder="Enter Recruiter's Name'">
+                </div>
+                <span class="field-validation-valid text-danger" data-valmsg-for="RecruiterName" data-valmsg-replace="true"></span>
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Recruiter's Contact Number</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="RecruiterContact"
+                           name="RecruiterContact"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.RecruiterContact"
+                           placeholder="Enter Recruiter's Contact number'">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="RecruiterContact" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row margin-top-02">
+                <div class="col-md-2 text-right padCtrlLeft">
+                    <label class="control-label">Team Lead Name</label>
+                </div>
+                <div class="col-md-4 text-left padCtrlLeft">
+                    <input class="form-control text-box  single-line"
+                           id="TeamLeadName"
+                           name="TeamLeadName"
+                           type="text"
+                           ng-hide="IsProfileEdit"
+                           ng-model="Profile.TeamLeadName"
+                           placeholder="Enter team lead Name">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="TeamLeadName" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary btnRounded" ng-click="UpdateProfile()">Update</button>
+    <button type="button" class="btn btn-primary btnRounded" ng-click="cancel()">Close</button>
+</div>

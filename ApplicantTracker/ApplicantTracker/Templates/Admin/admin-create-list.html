@@ -1,0 +1,70 @@
+﻿<!--<div class="modal-header" style="background-color:#428bca;color:#ffffff">-->
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">x</button>
+    <h4 class="modal-title">Add New Record</h4>
+</div>
+
+<form name="adminform">
+<div class="col-md-12 margin-top-05">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Status Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="row margin-top-02">
+
+                         <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">Name :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control" id="Name" name="Name" type="text" ng-model="statusCreate.Name" ng-class="{'input-validation-error': adminform.Name.$error.required}" required>
+                            <span class="field-validation-error" ng-show="adminform.Name.$error.required">{{errorMessage.name}}</span>
+                        </div>                        
+                        
+                         <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">Description :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control" id="Description" name="Description" type="text" ng-model="statusCreate.Description">
+                        </div>                                                                                             
+                    </div>
+
+                    <div class="row margin-top-02">
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            &nbsp;
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                         &nbsp;         
+                        </div>  
+
+                         <div class="col-md-2 text-right padCtrlLeft">
+                             <label class="control-label" for="Name">IsActive :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                          <input type="checkbox" ng-model="statusCreate.IsActive" name="IsActive" value="Bike">          
+                        </div>   
+                        
+                            
+
+                    </div>
+                </div>
+                                                 
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary btnRounded" ng-click="createStatus()">Create</button>
+    <!--<button type="button" class="btn btn-primary btnRounded" ng-click="showAlert('sm')">Close</button>-->
+    <button type="button" class="btn btn-primary btnRounded" ng-click="cancel()">Close</button>
+</div>

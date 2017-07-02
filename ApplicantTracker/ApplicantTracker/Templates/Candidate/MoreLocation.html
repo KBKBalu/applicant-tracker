@@ -1,0 +1,186 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">x</button>
+    <div class="row" style="margin-right:0px">
+        <h4 class="col-md-4">Select Location</h4>
+    </div>
+
+
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">List Of Locations</h3>
+                <!--<span class="pull-right clickable"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': IsInfoExpanded, 'glyphicon-chevron-down': !IsInfoExpanded}" ng-click="ToggleCandidateInfo()"></i></span>-->
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <!--<div class="col-md-1"></div>-->
+                    <div class="col-md-3" ng-repeat="item in SearchItems.Locations">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox" ng-model="item.IsSelected" ng-checked="item.IsSelected">
+                                {{item.Name}}
+                                <!--//Interview Scheduled-->
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                    <!--<div class="col-md-3">
+            <div class="checkbox">
+                <label class="myfont">
+                    <input type="checkbox">
+                    Interview Scheduled
+                </label>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="checkbox">
+                <label class="myfont">
+                    <input type="checkbox">
+                    Interview Scheduled
+                </label>
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="checkbox">
+                <label class="myfont">
+                    <input type="checkbox">
+                    Interview Scheduled
+                </label>
+            </div>
+
+        </div>-->
+                </div>
+
+                <!--<div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Hyderabad/Secunderabad
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Amaravati
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Tenali
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Guntur
+                            </label>
+                        </div>
+
+                    </div>
+                </div>-->
+                <!--<div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Infosys
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3" style="align-content:center">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Wipro
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Dell
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Google
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Amazon
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Accenture
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                HCL
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label class="myfont">
+                                <input type="checkbox">
+                                Oracle
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="close()">Refine</button>
+</div>

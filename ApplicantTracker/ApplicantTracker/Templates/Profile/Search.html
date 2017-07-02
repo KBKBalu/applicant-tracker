@@ -1,0 +1,151 @@
+﻿<div class="form-horizontal" ng-controller="ProfileController">
+    <div class="row">
+        <div class="col-md-2 text-right">
+            <label for="searchBy">Search By :</label>
+        </div>
+        <div class="col-md-3 text-left">
+
+            <input type='radio' name='searchCriteria'>
+            <label for="input5">Created in Last 120 days</label>
+
+        </div>
+        <div class="col-md-2 text-left">
+
+            <input type='radio' name='searchCriteria'>
+            <label for="input5">Email Address</label>
+
+        </div>
+        <div class="col-md-2 text-left">
+
+            <input type='radio' name='searchCriteria'>
+            <label for="input5">Phone Address</label>
+
+        </div>
+        <div class="col-md-2 text-left">
+
+            <input type='radio' name='searchCriteria'>
+            <label for="input5">Keyword</label>
+
+        </div>
+        <!--<div class="col-md-1 text-left">
+            <button type="button" class="btn btn-primary btnRounded" ng-click="Add()">Add New</button>
+        </div>-->
+    </div>
+
+    <div class="row margin-top-05">
+        <div class="col-md-2 text-right">
+            <label for="empty"></label>
+        </div>
+        <div class="col-md-4 text-right">
+            <label for="keyword">Keyword :</label>
+            <input class="form-control text-box single-line" id="keyword" name="keyword" type="text" value="" style="display:inline; width:70%">
+        </div>
+        <div class="col-md-5 text-right">
+            <label for="status">Status :</label>
+            <select id="disabledSelect" class="form-control" style="display:inline">
+                <option value="0">Please Select</option>
+                <option value="1">Interview Scheduled</option>
+                <option value="2">Pending</option>
+                <option value="3">Offer Accepted</option>
+                <option value="4">Offer Rejected</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row margin-top-05">
+        <div class="col-md-2 text-right">
+            <label for="empty"></label>
+        </div>
+        <div class="col-md-4 text-right">
+            <label for="keyword">Company :</label>
+            <input class=" form-control text-box single-line" name="company" type="text" value="" style="display:inline; width:70%">
+        </div>
+        <div class="col-md-5 text-right">
+            <label for="status">Role :</label>
+            <input class="form-control text-box single-line" id="keyword" name="keyword" type="text" value="" style="display:inline; width:70%">
+        </div>
+    </div>
+
+    <div class="row margin-top-05">
+        <div class="col-md-11 text-right">
+            <!--<button type="button" class="btn btn-primary btnRounded" ng-click="Search()">Search</button>
+            <button type="button" class="btn btn-primary btnRounded" ng-click="Add()">Add New</button>-->
+
+
+            <button type="button" class="btn btn-info" ng-click="SearchProfile()">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+
+            <!--<button type="button" class="btn btn-info" ng-click="open('md')">
+                <span class="glyphicon glyphicon-plus"></span> Add New
+            </button>-->
+
+            <!--<span class="glyphicons glyphicons-plus"></span>
+            <span class="glyphicon glyphicon-search">
+                <input type="button" value="View" class="btn btn-success" ng-click="view('lg')">
+            </span>
+            <input type="button" value="View" class="btn btn-success glyphicon glyphicon-zoom-in icon-white" ng-click="view('lg')">-->
+
+        </div>
+
+    </div>
+
+    <!--<div class="form-group">
+        <label class="control-label col-md-2" for="Name">Keyword</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="">
+            <input type="button" value="Search" class="btn btn-default btn-sm borderRounded" ng-click="SearchProfile()"> 
+            <input type="button" value="Add" class="btn btn-default" ng-click="open('md')">
+        </div>
+    </div>-->
+
+    <div>
+
+        <table class="table table-striped table-bordered bootstrap-datatable datatable responsive dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+            <thead>
+                <tr role="row">
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 120px;" aria-label="profileId: activate to sort column ascending">Profile Id</th>
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 120px;" aria-label="candidateId: activate to sort column ascending">Candidate Id</th>
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 181px;" aria-label="FirstName activate to sort column descending">First Name</th>
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 181px;" aria-label="LastName: activate to sort column ascending">Last Name</th>
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 120px;" aria-label="CompanyName: activate to sort column ascending">Company Name</th>
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 181px;" aria-label="Applied Date: activate to sort column ascending">Applied Date</th>
+                    <th class="sorting center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 97px;" aria-label="Current Status: activate to sort column ascending">Current Status</th>
+                    <th class="center" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 382px;">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                <tr class="odd" ng-repeat="profile in profiles">
+                    <td class="center">{{profile.ProfileId}}</td>
+                    <td class="center">{{profile.Candidate.CandidateId}}</td>
+                    <td class="center ">{{profile.Candidate.FirstName}}</td>
+                    <td class="center ">{{profile.Candidate.LastName}}</td>
+                    <td class="center ">{{profile.CompanyName}}</td>
+                    <td class="center ">{{profile.CreateDate}}</td>
+                    <td class="center ">
+                        <span class="label-primary label label-default">{{profile.CurrentStatus}}</span>
+                    </td>
+                    <td class="center">
+
+
+                        <a class="btn btn-success" href="#" ng-click="$event.preventDefault();view('lg')">
+                            <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                            View
+                        </a>
+                        <a class="btn btn-info" href="#" ng-click="$event.preventDefault();Edit('lg')">
+                            <i class="glyphicon glyphicon-edit icon-white"></i>
+                            Edit
+                        </a>
+                        <a class="btn btn-danger" href="#" ng-click="$event.preventDefault();view('lg')">
+                            <i class="glyphicon glyphicon-trash icon-white"></i>
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

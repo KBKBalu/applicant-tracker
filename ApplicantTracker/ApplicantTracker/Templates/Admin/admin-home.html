@@ -1,0 +1,47 @@
+﻿<div class="form-horizontal" ng-controller="adminBaseController">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-info">Please Select the value.</p>
+                    <select class="form-control" id="settingTypes" ng-change="" ng-model="selectedOption"
+                        ng-options="option.Name for option in items">
+                    </select>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div ng-show="selectedOption.Id === 0" ng-controller="adminRolesController">
+
+                        <div ng-include="'Templates/admin/admin-form.html'"></div>
+                        <div ng-include="'Templates/admin/admin-list.html'"></div>
+                    </div>
+
+                    <div ng-show="selectedOption.Id === 1" ng-controller="adminStatusController">
+                        <div ng-include="'Templates/admin/admin-form.html'"></div>
+                        <div ng-include="'Templates/admin/admin-list.html'"></div>
+                    </div>
+
+                    <div ng-show="selectedOption.Id === 2" ng-controller="adminCompanyController">
+                        <div ng-include="'Templates/admin/admin-form.html'"></div>
+                        <div ng-include="'Templates/admin/admin-list.html'"></div>
+                    </div>
+
+                    <div ng-show="selectedOption.Id === 3" ng-controller="adminIndustryController">
+                        <div ng-include="'Templates/admin/admin-form.html'"></div>
+                        <div ng-include="'Templates/admin/admin-list.html'"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

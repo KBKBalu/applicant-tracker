@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="apptrackModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="candidate">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+          </Key>
+          <Property Name="CandidateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="100" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="20" />
+          <Property Name="AlternateNumber" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="PrimaryEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SecondaryEmail" Type="varchar" MaxLength="100" />
+          <Property Name="CanStatusId" Type="int" Nullable="false" />
+          <Property Name="CurrentEmployer" Type="varchar" MaxLength="200" />
+          <Property Name="CurrentDesignation" Type="varchar" MaxLength="100" />
+          <Property Name="SalaryInLacks" Type="int" />
+          <Property Name="SalaryInThousands" Type="int" Nullable="false" />
+          <Property Name="ExperienceYears" Type="int" />
+          <Property Name="ExperienceMonths" Type="int" />
+          <Property Name="Skills" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="IndustryId" Type="int" Nullable="false" />
+          <Property Name="NoticePeriod" Type="int" Nullable="false" />
+          <Property Name="AssignedTo" Type="int" Nullable="false" />
+          <Property Name="Resume" Type="blob" />
+          <Property Name="CurrentLocation" Type="varchar" MaxLength="100" />
+          <Property Name="HomeTown" Type="varchar" MaxLength="100" />
+          <Property Name="Source" Type="varchar" MaxLength="100" />
+          <Property Name="Qualification" Type="varchar" MaxLength="100" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="DateofSpoken" Type="datetime" Precision="0" />
+          <Property Name="PreferredLocation" Type="varchar" MaxLength="1000" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="candidatestatus">
+          <Key>
+            <PropertyRef Name="CanStatusId" />
+          </Key>
+          <Property Name="CanStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bool" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Image" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bool" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="industry">
+          <Key>
+            <PropertyRef Name="IndustryId" />
+          </Key>
+          <Property Name="IndustryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bool" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="profileinfo">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="IndustryId" Type="int" Nullable="false" />
+          <Property Name="CompanyDetails" Type="varchar" MaxLength="1000" />
+          <Property Name="DateOfInterview" Type="date" />
+          <Property Name="CurrentStatus" Type="varchar" MaxLength="100" />
+          <Property Name="HRCopy" Type="varchar" MaxLength="100" />
+          <Property Name="AppliedPositionFor" Type="varchar" MaxLength="100" />
+          <Property Name="Interviewer" Type="varchar" MaxLength="100" />
+          <Property Name="InterviewerMobile" Type="varchar" MaxLength="20" />
+          <Property Name="CompanyContact" Type="varchar" MaxLength="20" />
+          <Property Name="ReferenceType" Type="varchar" MaxLength="100" />
+          <Property Name="NameOfRecruiter" Type="varchar" MaxLength="100" />
+          <Property Name="ContactOfRecruiter" Type="varchar" MaxLength="20" />
+          <Property Name="TeamLeadName" Type="varchar" MaxLength="100" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="profilestatus">
+          <Key>
+            <PropertyRef Name="ProfileStatusId" />
+          </Key>
+          <Property Name="ProfileStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bool" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bool" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Details" Type="varchar" MaxLength="1000" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Address" Type="char" MaxLength="50" />
+          <Property Name="MaritalStatus" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="35" Nullable="false" />
+          <Property Name="Mobile" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Branch" Type="char" MaxLength="30" />
+          <Property Name="Image" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bool" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <Association Name="FK_Candidate_AssignedTo">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="AssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_CanStatus">
+          <End Role="candidatestatus" Type="Self.candidatestatus" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidatestatus">
+              <PropertyRef Name="CanStatusId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="CanStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_CreatedBy">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_Industry">
+          <End Role="industry" Type="Self.industry" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="industry">
+              <PropertyRef Name="IndustryId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="IndustryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_ModifiedBy">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyId">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="profileinfo" Type="Self.profileinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="profileinfo">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Industry">
+          <End Role="industry" Type="Self.industry" Multiplicity="1" />
+          <End Role="profileinfo" Type="Self.profileinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="industry">
+              <PropertyRef Name="IndustryId" />
+            </Principal>
+            <Dependent Role="profileinfo">
+              <PropertyRef Name="IndustryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_profileinfo">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="profileinfo" Type="Self.profileinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="CandidateId" />
+            </Principal>
+            <Dependent Role="profileinfo">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_userrole">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="userrole" Type="Self.userrole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="userrole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_userrole">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="userrole" Type="Self.userrole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="userrole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SearchApplicant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="apptrack">
+          <Parameter Name="SearchText" Type="varchar" Mode="In" />
+          <Parameter Name="CanStatus" Type="varchar" Mode="In" />
+          <Parameter Name="Company" Type="varchar" Mode="In" />
+          <Parameter Name="Experience" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="Salary" Type="varchar" Mode="In" />
+          <Parameter Name="Location" Type="varchar" Mode="In" />
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Days" Type="varchar" Mode="In" />
+          <Parameter Name="StartRecord" Type="int" Mode="In" />
+          <Parameter Name="PageLimit" Type="int" Mode="In" />
+          <Parameter Name="TotalRecord" Type="int" Mode="Out" />
+        </Function>
+        <EntityContainer Name="apptrackModelStoreContainer">
+          <EntitySet Name="candidate" EntityType="Self.candidate" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="candidatestatus" EntityType="Self.candidatestatus" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="company" EntityType="Self.company" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="industry" EntityType="Self.industry" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="profileinfo" EntityType="Self.profileinfo" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="profilestatus" EntityType="Self.profilestatus" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="apptrack" store:Type="Tables" />
+          <EntitySet Name="userrole" EntityType="Self.userrole" Schema="apptrack" store:Type="Tables" />
+          <AssociationSet Name="FK_Candidate_AssignedTo" Association="Self.FK_Candidate_AssignedTo">
+            <End Role="user" EntitySet="user" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_CanStatus" Association="Self.FK_Candidate_CanStatus">
+            <End Role="candidatestatus" EntitySet="candidatestatus" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_CreatedBy" Association="Self.FK_Candidate_CreatedBy">
+            <End Role="user" EntitySet="user" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_Industry" Association="Self.FK_Candidate_Industry">
+            <End Role="industry" EntitySet="industry" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_ModifiedBy" Association="Self.FK_Candidate_ModifiedBy">
+            <End Role="user" EntitySet="user" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyId" Association="Self.FK_CompanyId">
+            <End Role="company" EntitySet="company" />
+            <End Role="profileinfo" EntitySet="profileinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Industry" Association="Self.FK_Industry">
+            <End Role="industry" EntitySet="industry" />
+            <End Role="profileinfo" EntitySet="profileinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_profileinfo" Association="Self.FK_profileinfo">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="profileinfo" EntitySet="profileinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_userrole" Association="Self.FK_role_userrole">
+            <End Role="role" EntitySet="role" />
+            <End Role="userrole" EntitySet="userrole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_userrole" Association="Self.FK_user_userrole">
+            <End Role="user" EntitySet="user" />
+            <End Role="userrole" EntitySet="userrole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="apptrackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="candidates" EntityType="apptrackModel.candidate" />
+          <EntitySet Name="candidatestatus" EntityType="apptrackModel.candidatestatu" />
+          <EntitySet Name="companies" EntityType="apptrackModel.company" />
+          <EntitySet Name="industries" EntityType="apptrackModel.industry" />
+          <EntitySet Name="roles" EntityType="apptrackModel.role" />
+          <EntitySet Name="users" EntityType="apptrackModel.user" />
+          <EntitySet Name="userroles" EntityType="apptrackModel.userrole" />
+          <AssociationSet Name="FK_Candidate_AssignedTo" Association="apptrackModel.FK_Candidate_AssignedTo">
+            <End Role="user" EntitySet="users" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_CanStatus" Association="apptrackModel.FK_Candidate_CanStatus">
+            <End Role="candidatestatu" EntitySet="candidatestatus" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_CreatedBy" Association="apptrackModel.FK_Candidate_CreatedBy">
+            <End Role="user" EntitySet="users" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_Industry" Association="apptrackModel.FK_Candidate_Industry">
+            <End Role="industry" EntitySet="industries" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Candidate_ModifiedBy" Association="apptrackModel.FK_Candidate_ModifiedBy">
+            <End Role="user" EntitySet="users" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_userrole" Association="apptrackModel.FK_role_userrole">
+            <End Role="role" EntitySet="roles" />
+            <End Role="userrole" EntitySet="userroles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_userrole" Association="apptrackModel.FK_user_userrole">
+            <End Role="user" EntitySet="users" />
+            <End Role="userrole" EntitySet="userroles" />
+          </AssociationSet>
+          <FunctionImport Name="SearchApplicant" ReturnType="Collection(apptrackModel.SearchApplicant_Result)">
+            <Parameter Name="SearchText" Mode="In" Type="String" />
+            <Parameter Name="CanStatus" Mode="In" Type="String" />
+            <Parameter Name="Company" Mode="In" Type="String" />
+            <Parameter Name="Experience" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="Salary" Mode="In" Type="String" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Days" Mode="In" Type="String" />
+            <Parameter Name="StartRecord" Mode="In" Type="Int32" />
+            <Parameter Name="PageLimit" Mode="In" Type="Int32" />
+            <Parameter Name="TotalRecord" Mode="Out" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="profileinfoes" EntityType="apptrackModel.profileinfo" />
+          <AssociationSet Name="FK_profileinfo" Association="apptrackModel.FK_profileinfo">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="profileinfo" EntitySet="profileinfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyId" Association="apptrackModel.FK_CompanyId">
+            <End Role="company" EntitySet="companies" />
+            <End Role="profileinfo" EntitySet="profileinfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Industry" Association="apptrackModel.FK_Industry">
+            <End Role="industry" EntitySet="industries" />
+            <End Role="profileinfo" EntitySet="profileinfoes" />
+          </AssociationSet>
+          <EntitySet Name="profilestatus" EntityType="apptrackModel.profilestatu" />
+          <!--<EntitySet Name="profilestatus" EntityType="apptrackModel.profilestatu" />-->
+          </EntityContainer>
+        <EntityType Name="candidate">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+          </Key>
+          <Property Name="CandidateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AlternateNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" />
+          <Property Name="PrimaryEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SecondaryEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CanStatusId" Type="Int32" Nullable="false" />
+          <Property Name="CurrentEmployer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentDesignation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryInLacks" Type="Int32" />
+          <Property Name="SalaryInThousands" Type="Int32" Nullable="false" />
+          <Property Name="ExperienceYears" Type="Int32" />
+          <Property Name="ExperienceMonths" Type="Int32" />
+          <Property Name="Skills" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="IndustryId" Type="Int32" Nullable="false" />
+          <Property Name="NoticePeriod" Type="Int32" Nullable="false" />
+          <Property Name="AssignedTo" Type="Int32" Nullable="false" />
+          <Property Name="Resume" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CurrentLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HomeTown" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="user" Relationship="apptrackModel.FK_Candidate_AssignedTo" FromRole="candidate" ToRole="user" />
+          <NavigationProperty Name="candidatestatu" Relationship="apptrackModel.FK_Candidate_CanStatus" FromRole="candidate" ToRole="candidatestatu" />
+          <NavigationProperty Name="user1" Relationship="apptrackModel.FK_Candidate_CreatedBy" FromRole="candidate" ToRole="user" />
+          <NavigationProperty Name="industry" Relationship="apptrackModel.FK_Candidate_Industry" FromRole="candidate" ToRole="industry" />
+          <NavigationProperty Name="user2" Relationship="apptrackModel.FK_Candidate_ModifiedBy" FromRole="candidate" ToRole="user" />
+          <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="DateofSpoken" Type="DateTime" />
+          <Property Name="PreferredLocation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="profileinfoes" Relationship="apptrackModel.FK_profileinfo" FromRole="candidate" ToRole="profileinfo" />
+        </EntityType>
+        <EntityType Name="candidatestatu">
+          <Key>
+            <PropertyRef Name="CanStatusId" />
+          </Key>
+          <Property Name="CanStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="candidates" Relationship="apptrackModel.FK_Candidate_CanStatus" FromRole="candidatestatu" ToRole="candidate" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="profileinfoes" Relationship="apptrackModel.FK_CompanyId" FromRole="company" ToRole="profileinfo" />
+        </EntityType>
+        <EntityType Name="industry">
+          <Key>
+            <PropertyRef Name="IndustryId" />
+          </Key>
+          <Property Name="IndustryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="candidates" Relationship="apptrackModel.FK_Candidate_Industry" FromRole="industry" ToRole="candidate" />
+          <NavigationProperty Name="profileinfoes" Relationship="apptrackModel.FK_Industry" FromRole="industry" ToRole="profileinfo" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="userroles" Relationship="apptrackModel.FK_role_userrole" FromRole="role" ToRole="userrole" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Branch" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="candidates" Relationship="apptrackModel.FK_Candidate_AssignedTo" FromRole="user" ToRole="candidate" />
+          <NavigationProperty Name="candidates1" Relationship="apptrackModel.FK_Candidate_CreatedBy" FromRole="user" ToRole="candidate" />
+          <NavigationProperty Name="candidates2" Relationship="apptrackModel.FK_Candidate_ModifiedBy" FromRole="user" ToRole="candidate" />
+          <NavigationProperty Name="userroles" Relationship="apptrackModel.FK_user_userrole" FromRole="user" ToRole="userrole" />
+          <Property Name="Image" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="role" Relationship="apptrackModel.FK_role_userrole" FromRole="userrole" ToRole="role" />
+          <NavigationProperty Name="user" Relationship="apptrackModel.FK_user_userrole" FromRole="userrole" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_Candidate_AssignedTo">
+          <End Type="apptrackModel.user" Role="user" Multiplicity="1" />
+          <End Type="apptrackModel.candidate" Role="candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="AssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_CanStatus">
+          <End Type="apptrackModel.candidatestatu" Role="candidatestatu" Multiplicity="1" />
+          <End Type="apptrackModel.candidate" Role="candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidatestatu">
+              <PropertyRef Name="CanStatusId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="CanStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_CreatedBy">
+          <End Type="apptrackModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="apptrackModel.candidate" Role="candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_Industry">
+          <End Type="apptrackModel.industry" Role="industry" Multiplicity="1" />
+          <End Type="apptrackModel.candidate" Role="candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="industry">
+              <PropertyRef Name="IndustryId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="IndustryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Candidate_ModifiedBy">
+          <End Type="apptrackModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="apptrackModel.candidate" Role="candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_userrole">
+          <End Type="apptrackModel.role" Role="role" Multiplicity="1" />
+          <End Type="apptrackModel.userrole" Role="userrole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="userrole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_userrole">
+          <End Type="apptrackModel.user" Role="user" Multiplicity="1" />
+          <End Type="apptrackModel.userrole" Role="userrole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="userrole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SearchApplicant_Result" >
+          <Property Type="Int32" Name="CandidateId" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="String" Name="MiddleName" Nullable="false" />
+          <Property Type="String" Name="MobileNumber" Nullable="false" />
+          <Property Type="String" Name="AlternateNumber" Nullable="false" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" />
+          <Property Type="String" Name="PrimaryEmail" Nullable="false" />
+          <Property Type="String" Name="SecondaryEmail" Nullable="false" />
+          <Property Type="String" Name="CurrentEmployer" Nullable="false" />
+          <Property Type="Int32" Name="CanStatusId" Nullable="false" />
+          <Property Type="String" Name="CurrentDesignation" Nullable="false" />
+          <Property Type="Int32" Name="SalaryInLacks" Nullable="false" />
+          <Property Type="Int32" Name="SalaryInThousands" Nullable="false" />
+          <Property Type="Int32" Name="ExperienceYears" Nullable="false" />
+          <Property Type="String" Name="Skills" Nullable="false" />
+          <Property Type="Int32" Name="ExperienceMonths" Nullable="false" />
+          <Property Type="Int32" Name="IndustryId" Nullable="false" />
+          <Property Type="Int32" Name="NoticePeriod" Nullable="false" />
+          <Property Type="Int32" Name="AssignedTo" Nullable="false" />
+          <Property Type="String" Name="CurrentLocation" Nullable="false" />
+          <Property Type="String" Name="HomeTown" Nullable="false" />
+          <Property Type="String" Name="Source" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <Property Type="Int32" Name="ModifiedBy" Nullable="false" />
+          <Property Type="String" Name="Qualification" Nullable="false" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="DateTime" Name="DateofSpoken" Nullable="false" />
+          <Property Type="String" Name="PreferredLocation" Nullable="false" />
+          <Property Type="Byte" Name="Resume" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="profileinfo">
+          <Key>
+            <PropertyRef Name="ProfileId" />
+          </Key>
+          <Property Name="ProfileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="IndustryId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyDetails" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfInterview" Type="DateTime" />
+          <Property Name="CurrentStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HRCopy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AppliedPositionFor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Interviewer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="InterviewerMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyContact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NameOfRecruiter" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactOfRecruiter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TeamLeadName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="candidate" Relationship="apptrackModel.FK_profileinfo" FromRole="profileinfo" ToRole="candidate" />
+          <NavigationProperty Name="company" Relationship="apptrackModel.FK_CompanyId" FromRole="profileinfo" ToRole="company" />
+          <NavigationProperty Name="industry" Relationship="apptrackModel.FK_Industry" FromRole="profileinfo" ToRole="industry" />
+        </EntityType>
+        <Association Name="FK_profileinfo">
+          <End Type="apptrackModel.candidate" Role="candidate" Multiplicity="1" />
+          <End Type="apptrackModel.profileinfo" Role="profileinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="CandidateId" />
+            </Principal>
+            <Dependent Role="profileinfo">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyId">
+          <End Type="apptrackModel.company" Role="company" Multiplicity="0..1" />
+          <End Type="apptrackModel.profileinfo" Role="profileinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="profileinfo">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Industry">
+          <End Type="apptrackModel.industry" Role="industry" Multiplicity="1" />
+          <End Type="apptrackModel.profileinfo" Role="profileinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="industry">
+              <PropertyRef Name="IndustryId" />
+            </Principal>
+            <Dependent Role="profileinfo">
+              <PropertyRef Name="IndustryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="profilestatu">
+          <Key>
+            <PropertyRef Name="ProfileStatusId" />
+          </Key>
+          <Property Name="ProfileStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" />
+          <Property Name="ModifiedBy" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="apptrackModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="candidates">
+            <EntityTypeMapping TypeName="apptrackModel.candidate">
+              <MappingFragment StoreEntitySet="candidate">
+                <ScalarProperty Name="PreferredLocation" ColumnName="PreferredLocation" />
+                <ScalarProperty Name="DateofSpoken" ColumnName="DateofSpoken" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="HomeTown" ColumnName="HomeTown" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Resume" ColumnName="Resume" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="ExperienceMonths" ColumnName="ExperienceMonths" />
+                <ScalarProperty Name="ExperienceYears" ColumnName="ExperienceYears" />
+                <ScalarProperty Name="SalaryInThousands" ColumnName="SalaryInThousands" />
+                <ScalarProperty Name="SalaryInLacks" ColumnName="SalaryInLacks" />
+                <ScalarProperty Name="CurrentDesignation" ColumnName="CurrentDesignation" />
+                <ScalarProperty Name="CurrentEmployer" ColumnName="CurrentEmployer" />
+                <ScalarProperty Name="CanStatusId" ColumnName="CanStatusId" />
+                <ScalarProperty Name="SecondaryEmail" ColumnName="SecondaryEmail" />
+                <ScalarProperty Name="PrimaryEmail" ColumnName="PrimaryEmail" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="AlternateNumber" ColumnName="AlternateNumber" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidatestatus">
+            <EntityTypeMapping TypeName="apptrackModel.candidatestatu">
+              <MappingFragment StoreEntitySet="candidatestatus">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CanStatusId" ColumnName="CanStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="apptrackModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="industries">
+            <EntityTypeMapping TypeName="apptrackModel.industry">
+              <MappingFragment StoreEntitySet="industry">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="apptrackModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="apptrackModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userroles">
+            <EntityTypeMapping TypeName="apptrackModel.userrole">
+              <MappingFragment StoreEntitySet="userrole">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SearchApplicant" FunctionName="apptrackModel.Store.SearchApplicant">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="apptrackModel.SearchApplicant_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="profileinfoes">
+            <EntityTypeMapping TypeName="apptrackModel.profileinfo">
+              <MappingFragment StoreEntitySet="profileinfo">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="TeamLeadName" ColumnName="TeamLeadName" />
+                <ScalarProperty Name="ContactOfRecruiter" ColumnName="ContactOfRecruiter" />
+                <ScalarProperty Name="NameOfRecruiter" ColumnName="NameOfRecruiter" />
+                <ScalarProperty Name="ReferenceType" ColumnName="ReferenceType" />
+                <ScalarProperty Name="CompanyContact" ColumnName="CompanyContact" />
+                <ScalarProperty Name="InterviewerMobile" ColumnName="InterviewerMobile" />
+                <ScalarProperty Name="Interviewer" ColumnName="Interviewer" />
+                <ScalarProperty Name="AppliedPositionFor" ColumnName="AppliedPositionFor" />
+                <ScalarProperty Name="HRCopy" ColumnName="HRCopy" />
+                <ScalarProperty Name="CurrentStatus" ColumnName="CurrentStatus" />
+                <ScalarProperty Name="DateOfInterview" ColumnName="DateOfInterview" />
+                <ScalarProperty Name="CompanyDetails" ColumnName="CompanyDetails" />
+                <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profilestatus">
+            <EntityTypeMapping TypeName="apptrackModel.profilestatu">
+              <MappingFragment StoreEntitySet="profilestatus">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProfileStatusId" ColumnName="ProfileStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

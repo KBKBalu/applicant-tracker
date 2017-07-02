@@ -1,0 +1,219 @@
+﻿<!--<div class="modal-header" style="background-color:#428bca;color:#ffffff">-->
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">x</button>
+
+    <div class="row" style="margin-right: 0px">
+        <h4 class="col-md-4">user Id :{{user.UserId}}</h4>
+        <!--<label class="modal-title control-label text-right">user Id :{{user.CandidateId}}</label>
+       <!-- <div class="col-md-8 text-right">
+            <label class="modal-title control-label text-right">Status :</label>
+            <select id="disabledSelect" class="form-control" style="display:inline">
+                <option value="0">Please Select</option>
+                <option value="1">Interview Scheduled</option>
+                <option value="2">Pending</option>
+                <option value="3">Offer Accepted</option>
+                <option value="4">Offer Rejected</option>
+            </select>
+        </div>
+    </div>-->
+        <!--<h4 class="modal-title">user Id :{{user.CandidateId}}</h4>-->
+    </div>
+    <form name="userForm">
+    <div class="col-md-12 margin-top-05">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Edit Personal Information</h3>
+            </div>
+            <div class="panel-body">
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">FirstName :</label>
+                        </div>
+
+                       <!-- <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  col-md-4 single-line" id="FirstName" name="{{user.FirstName}}" type="text" ng-model="user.FirstName">
+                        </div>-->
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box" id="Text1" name="FirstName" type="text" ng-model="user.FirstName" ng-class="{'input-validation-error': userForm.FirstName.$error.required}" required>
+                            <span class="field-validation-error" ng-show="userForm.FirstName.$error.required">{{errorMessage.name}}</span>
+                        </div>
+
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">MiddleName :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box" id="MiddleName" name="LastName" type="text" ng-model="user.MiddleName">
+                        </div>
+
+                    </div>
+                    <div class="row margin-top-02">
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">LastName :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box  " id="LastName" name="LastName" type="text" ng-model="user.LastName">
+                        </div>
+
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label " for="Name">Password :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box " id="Password" name="Password" type="text" ng-model="user.Password">
+                        </div>
+
+
+                    </div>
+                    <div class="row margin-top-02">
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">Details :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box " id="Details" name="Details" type="text" ng-model="user.Details">
+                        </div>
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">DateOfBirth :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box" id="DateOfBirth" name="DateOfBirth" type="date" ng-model="user.DateOfBirth">
+                        </div>
+
+                    </div>
+                    <div class="row margin-top-02">
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">Address :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box" id="Address" name="Address" type="text" ng-model="user.Address">
+                        </div>
+
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="maritalstatus">MaritalStatus :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input type="radio" ng-model="user.MaritalStatus" name="maritalstatus" value="Single" required /><span>Single:</span>
+                            <input type="radio" ng-model="user.MaritalStatus" name="maritalstatus" value="Married" required />
+                            <span>Married:</span>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row margin-top-02">
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">Mobile :</label>
+                        </div>
+
+                         <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box" id="Number1" name="Mobile" type="number" ng-model="user.Mobile" ng-pattern="restrictions.Mobile" ng-class="{'input-validation-error': userForm.Mobile.$error.pattern}">
+                                <span class="field-validation-error" ng-show="userForm.Mobile.$error.pattern">{{errorMessage.Mobile}}</span></input>
+
+                        </div>
+
+                        <!--<div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box " id="Mobile" name="Mobile" type="number" ng-model="user.Mobile">
+                        </div>-->
+
+
+                        <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="gender">Gender :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input type="radio" ng-model="user.Gender" name="gender" value="Male" required /><span>Male:</span>
+                            <input type="radio" ng-model="user.Gender" name="gender" value="Female" required />
+                            <span>Female:</span>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                        </div>
+
+                        <!--<input class="form-control text-box col-md-4 single-line" id="Gender" name="Gender" type="text" ng-model="user.Gender">-->
+                    </div>
+
+                    <div class="row margin-top-02">
+
+                          <div class="col-md-2 text-right padCtrlLeft">
+                            <label class="control-label" for="Name">Email :</label>
+                        </div>
+
+                        <!--<div class="col-md-4 text-left padCtrlLeft">
+                             <input class="form-control text-box" id="Email" name="Email" type="email" ng-model="user.Email">
+                        </div>-->
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                            <input class="form-control text-box" id="Email1" name="Email" type="email" ng-model="user.Email" ng-pattern="restrictions.Email" ng-class="{'input-validation-error': userForm.Email.$error.pattern}">
+                            <span class="field-validation-error" ng-show="userForm.Email.$error.pattern">{{errorMessage.Email}}</span></input>
+
+                        </div>
+
+                        
+                          <div class="col-md-2 text-right padCtrlLeft">
+                             <label class="control-label" for="Name">Branch :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                             <input class="form-control text-box" id="Branch" name="Branch" type="text" ng-model="user.Branch">
+                        </div>
+
+                    </div>
+
+                    <div class="row margin-top-02">
+
+                      
+
+                          <div class="col-md-2 text-right padCtrlLeft">
+                             <label class="control-label" for="Name">UserRole :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                             <select id="Select2" class="form-control" ng-model="userRole.selected">
+
+                            <!--<option value="0">Please Select</option>
+                            <!--<option ng-repeat="userrole in userRoles" value="{{userrole.value}}">{{userrole.displayName}}</option>-->
+                            -->
+                               <option value="1" selected>Associate</option>
+                            <option value="2">Team Leader</option>
+                            <option value="3">Manager</option>
+                        </select>
+                        </div>
+
+                            <div class="col-md-2 text-right padCtrlLeft">
+                             <label class="control-label" for="Name">IsActive :</label>
+                        </div>
+
+                        <div class="col-md-4 text-left padCtrlLeft">
+                             <input type="checkbox" ng-model="user.IsActive" name="IsActive" checked value="user.IsActive" />
+                        </div>
+
+                        
+                    </div>
+
+                   
+                </div>
+            
+                
+            </div>
+        </div>
+    </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btnRounded" ng-click="update()">Update</button>
+        <button type="button" class="btn btn-primary btnRounded" ng-click="cancel()">Close</button>
+    </div>

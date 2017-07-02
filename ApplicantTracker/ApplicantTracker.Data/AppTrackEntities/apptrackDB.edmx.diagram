@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8fee3768df5442a3b84fb3262297c07a" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="apptrackModel.candidate" Width="1.5" PointX="6" PointY="4.375" />
+        <EntityTypeShape EntityType="apptrackModel.candidatestatu" Width="1.5" PointX="3.75" PointY="10.625" />
+        <EntityTypeShape EntityType="apptrackModel.company" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="apptrackModel.industry" Width="1.5" PointX="3.75" PointY="2.875" />
+        <EntityTypeShape EntityType="apptrackModel.role" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="apptrackModel.user" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="apptrackModel.userrole" Width="1.5" PointX="3" PointY="6.75" />
+        <AssociationConnector Association="apptrackModel.FK_Candidate_AssignedTo" />
+        <AssociationConnector Association="apptrackModel.FK_Candidate_CanStatus" />
+        <AssociationConnector Association="apptrackModel.FK_Candidate_CreatedBy" />
+        <AssociationConnector Association="apptrackModel.FK_Candidate_Industry" />
+        <AssociationConnector Association="apptrackModel.FK_Candidate_ModifiedBy" />
+        <AssociationConnector Association="apptrackModel.FK_role_userrole" />
+        <AssociationConnector Association="apptrackModel.FK_user_userrole" />
+        <EntityTypeShape EntityType="apptrackModel.profilestatu" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="apptrackModel.profileinfo" Width="1.5" PointX="8.25" PointY="4" />
+        <AssociationConnector Association="apptrackModel.FK_profileinfo" />
+        <AssociationConnector Association="apptrackModel.FK_CompanyId" />
+        <AssociationConnector Association="apptrackModel.FK_Industry" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

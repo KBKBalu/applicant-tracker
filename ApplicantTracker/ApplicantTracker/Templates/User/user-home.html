@@ -1,0 +1,47 @@
+﻿<div class="form-horizontal" ng-controller="userController" ng-init="Initialize()">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="row" style="text-align: right">
+                <button type="button" title="Add New User" class="btn btn-success btn-circle" ng-click="open('md')"><i class="fa fa-user-plus icon-white"></i></button>
+
+            </div>
+
+        </div>
+        <div class="panel-body">
+            <div class="row">
+
+                <div class="col-md-3" data-ng-repeat="item in items">
+
+
+
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6 text-left"><strong>ID: </strong><span data-ng-bind="item.UserId"></span></div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel-body panel panel-info">
+                        <div><strong>Name</strong>:<span data-ng-bind="item.FirstName +'&nbsp;'+item.LastName"></span></div>
+                        <div><strong>Email</strong>:  <span data-ng-bind="item.Email"></span></div>
+                        <div><strong>IsActive</strong>:  <span data-ng-bind="item.IsActive"></span></div>
+                        <div><strong>Branch</strong>:  <span data-ng-bind="item.Branch"></span></div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" title="Delete User Details" class="btn btn-danger btn-circle" ng-click=" deleteUser(item, false)"><i class="fa fa-trash icon-white"></i></button>
+                            </div>
+                            <div class="col-md-6" style="text-align: right">
+                                <button type="button" title="Edit User Details" class="btn btn-info btn-circle" data-ng-click="Edit(item, true)"><i class="fa fa-pencil icon-white"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

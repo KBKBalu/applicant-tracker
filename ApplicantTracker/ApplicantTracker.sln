@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{5BA18E1C-7737-4FD5-8007-98AF91D35713}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{603496CE-61E8-4803-B703-92965E6DBE6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicantTracker", "ApplicantTracker\ApplicantTracker.csproj", "{3847D6E0-F3E8-4B4E-8567-D000A26ADC29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicantTracker.Data", "ApplicantTracker.Data\ApplicantTracker.Data.csproj", "{E053CB68-9021-474B-9D50-437FDAF9206A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicantTracker.InfraStructure", "ApplicantTracker.InfraStructure\ApplicantTracker.InfraStructure.csproj", "{8F0E699A-B324-42E1-A1C7-40B8FF5173D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BE8909DD-661D-43CA-85CD-C3E86C05965C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://nithyanantham.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ApplicantTracker\\ApplicantTracker.csproj
+		SccProjectTopLevelParentUniqueName1 = ApplicantTracker.sln
+		SccProjectName1 = ApplicantTracker
+		SccLocalPath1 = ApplicantTracker
+		SccProjectUniqueName2 = ApplicantTracker.Data\\ApplicantTracker.Data.csproj
+		SccProjectTopLevelParentUniqueName2 = ApplicantTracker.sln
+		SccProjectName2 = ApplicantTracker.Data
+		SccLocalPath2 = ApplicantTracker.Data
+		SccProjectUniqueName3 = ApplicantTracker.InfraStructure\\ApplicantTracker.InfraStructure.csproj
+		SccProjectTopLevelParentUniqueName3 = ApplicantTracker.sln
+		SccProjectName3 = ApplicantTracker.InfraStructure
+		SccLocalPath3 = ApplicantTracker.InfraStructure
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3847D6E0-F3E8-4B4E-8567-D000A26ADC29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3847D6E0-F3E8-4B4E-8567-D000A26ADC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3847D6E0-F3E8-4B4E-8567-D000A26ADC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3847D6E0-F3E8-4B4E-8567-D000A26ADC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E053CB68-9021-474B-9D50-437FDAF9206A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E053CB68-9021-474B-9D50-437FDAF9206A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E053CB68-9021-474B-9D50-437FDAF9206A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E053CB68-9021-474B-9D50-437FDAF9206A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F0E699A-B324-42E1-A1C7-40B8FF5173D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0E699A-B324-42E1-A1C7-40B8FF5173D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0E699A-B324-42E1-A1C7-40B8FF5173D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0E699A-B324-42E1-A1C7-40B8FF5173D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3847D6E0-F3E8-4B4E-8567-D000A26ADC29} = {5BA18E1C-7737-4FD5-8007-98AF91D35713}
+		{E053CB68-9021-474B-9D50-437FDAF9206A} = {603496CE-61E8-4803-B703-92965E6DBE6B}
+		{8F0E699A-B324-42E1-A1C7-40B8FF5173D4} = {603496CE-61E8-4803-B703-92965E6DBE6B}
+	EndGlobalSection
+EndGlobal

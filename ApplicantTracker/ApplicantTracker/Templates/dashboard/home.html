@@ -1,0 +1,161 @@
+<script src="../../Scripts/Librariesmin/jquery.min.js"></script>
+<script src="../../Scripts/jquery.sparkline.min.js"></script>
+
+<script type="text/javascript">
+    //var values = $scope.MemberActivities.TotalRecords.values;
+    //var nodes = $scope.MemberActivities.TotalRecords.nodes;
+
+    debugger;
+    var records = $('#chartValue').value;
+    var values = [4, 5, 1, 10, 0, 3, 7];
+    var nodes = 9;
+    $("#sparkline_bar").sparkline(values, {
+        type: 'bar',
+        width: '100',
+        barWidth: nodes,
+        height: '45',
+        barColor: '#23B7E5',
+        negBarColor: '#e02222'
+    });
+
+    //var NewRecordValues = MemberActivities.NewRecords.values;
+    //var NewRecorsNodes = MemberActivities.NewRecords.nodes;
+    var NewRecordValues = [4, 5, 0, 10, 7, 3, 7];
+    var NewRecorsNodes = 9;
+    $("#sparkline_bar2").sparkline(NewRecordValues, {
+        type: 'bar',
+        width: '100',
+        barWidth: NewRecorsNodes,
+        height: '45',
+        barColor: '#f0ad4e',
+        negBarColor: '#e02222'
+    });
+</script>
+<div class="row" ng-init="GetDashboardCount()">
+   
+
+    <input type="hidden" value="{{MemberActivities}}" id="chartValue">
+    <div class="col-md-12 panel panel-group">
+        <!--<div class="panel panel-default">-->
+        <div class="col-md-6 col-sm-6 panel-board">
+            <div class="p">
+                &nbsp;
+            </div>
+            <div class="panel-body text-left">
+                <div class="m-v-lg ">
+                    &nbsp;
+                    <div class="h2 text-primary font-bold">Dashboard</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 panel-board">
+
+            <div class="p">
+                &nbsp;
+            </div>
+            <div class="panel-body text-center">
+                <div class="m-v-lg">
+                    <span class="text-primary  fa-sm pull-left"><i class="fa fa-female fa-lg"></i><i class="fa fa-sitemap fa-3x"></i><i class="fa fa-male fa-lg"></i></span>Total Associates
+                    <div class="h2 text-success font-bold">{{TotalEmployees}}</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--</div>-->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+
+    <stats class="col-md-4 col-sm-6" number={{ActiveProfiles}} comments="New profiles!" colour="azureblue" type="user-plus"></stats>
+    <stats class="col-md-4 col-sm-6" number={{NewProfiles}} comments="New interviews!" colour="purple" type="street-view"></stats>
+    <stats class="col-md-4 col-sm-6" number={{OfferReleases}} comments="Active profiles!" colour="yellow" type="comments"></stats>
+    <stats class="col-md-4 col-sm-6" number={{NewInterviews}} comments="Offer releases!" colour="primary" type="support"></stats>
+</div>
+
+
+<div class="row dashboard">
+    <div class="col-md-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart font-red"></i>
+                    <span class="caption-subject font-red bold uppercase">Associate Activity</span>
+                    <span class="caption-helper">weekly stats...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label class="btn btn-transparent green btn-outline  btn-sm active" ng-click="RefreshDashboard('today')">
+                            <input type="radio" name="options" class="toggle" id="option1">Today
+                        </label>
+                        <label class="btn btn-transparent green btn-outline  btn-sm" ng-click="RefreshDashboard('week')">
+                            <input type="radio" name="options" class="toggle" id="option2">Week
+                        </label>
+                        <label class="btn btn-transparent green btn-outline  btn-sm" ng-click="RefreshDashboard('month')">
+                            <input type="radio" name="options" class="toggle" id="option2">Month
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row number-stats margin-bottom-30">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="stat-left">
+                            <div class="stat-chart">
+                                <div id="sparkline_bar"><canvas width="113" height="55" style="display: inline-block; width: 113px; height: 55px; vertical-align: top;"></canvas></div>
+                            </div>
+                            <div class="stat-number">
+                                <div class="title"> Total </div>
+                                <div class="number"> {{MemberActivities.TotalRecords.count}} </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="stat-right">
+                            <div class="stat-chart">
+                                <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                <div id="sparkline_bar2"><canvas width="107" height="55" style="display: inline-block; width: 107px; height: 55px; vertical-align: top;"></canvas></div>
+                            </div>
+                            <div class="stat-number">
+                                <div class="title"> New </div>
+                                <div class="number"> {{MemberActivities.NewRecords.count}} </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr class="uppercase">
+                                <th colspan="2">ASSOCIATE</th>
+                                <th> ASSIGNED </th>
+                                <th> CLOSED </th>
+                                <th> INPROGRESS </th>
+                                <th> TOTAL </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="member in MemberActivities.Members" ng-model="MemberActivities.Members">
+                                <td class="fit">
+                                    <img class="user-pic rounded" src="../Images/flat-avatar-female.png">
+                                </td>
+                                <td>
+                                    <a href="javascript:;" class="primary-link">{{member.UserName}}</a>
+                                </td>
+                                <td> {{member.Assigned}} </td>
+                                <td> {{member.Closed}} </td>
+                                <td> {{member.InProgress}} </td>
+                                <td>
+                                    <span class="bold theme-font">{{member.Total}}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

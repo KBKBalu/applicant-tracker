@@ -1,0 +1,28 @@
+﻿
+
+    <div class="row">
+        <!--<div class="col-md-1"></div>-->
+        <div class="col-md-3 panel-info"  ng-repeat="item in items">
+            <div class="panel-body">
+                <ul>
+                <li><strong>Name</strong>:<span data-ng-bind="item.Name"></span></li>
+                <li><strong>Description</strong>:  <span data-ng-bind="item.Description"></span></li>
+                <li><strong>IsActive</strong>:  <span data-ng-bind="item.IsActive"></span></li>
+
+            </ul>
+
+               <div class="row">
+                <div class="col-md-6">
+                    <button type="button" title="Delete Item Details" class="btn btn-danger btn-circle" ng-click=" deleteItem(item, false)"><i class="fa fa-trash icon-white"></i></button>
+                </div>
+                <div class="col-md-6" style="text-align:right">
+                    <button type="button" title="Edit Item Details" class="btn btn-info btn-circle" data-ng-click="createEdit(item, true)"><i class="fa fa-pencil icon-white"></i></button>
+
+                </div>
+            </div>
+
+            </div>           
+
+        </div>      
+              
+    </div>

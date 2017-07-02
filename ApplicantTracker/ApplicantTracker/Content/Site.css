@@ -1,0 +1,129 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.large-Modal .modal-dialog {
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /*padding-top: 50%;
+    padding-bottom: 50%;*/
+}
+
+.centre-Modal {
+    position: fixed;
+    /*position: absolute;*/
+    top: 50%;
+    left: 18.5%;
+    /*z-index: 1050;*/
+    width: 80%;
+    height: 80%;
+    margin-left: -10%;
+    margin-top: 500px;
+    padding-top: 70%;
+    padding-bottom: 50%;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.btnRounded {
+    background-color: #09c;
+    /*border-radius: 10px;*/
+}
+
+.btnColor {
+    background-color: #09c;
+}
+
+.btnOrange {
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
+}
+
+.borderRounded {
+    border-radius: 10px;
+}
+
+.margin-top-05 {
+    margin-top: 1em;
+}
+
+.margin-top-02 {
+    margin-top: 0.5em;
+}
+
+.myfont {
+    font-size: 12px;
+}
+
+
+.totalWidth {
+    max-width: 100%;
+}
+
+.noBorder {
+    border-radius: 0px;
+}
+
+
+.panel-filter {
+    /*border-width: 0;*/
+    /*-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.15);*/
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    margin-bottom: 0px;
+    margin: 0 0 0px;
+    /*padding: 16px 10px 10px 15px;*/
+    /*border-left: 5px solid #f8f8f8;*/
+    border-radius: 0 4px 4px 0;
+}
+
+.padCtrl {
+    padding-left: 2px;
+}
+
+
+.padCtrlLeft {
+    padding-right: 0px;
+}
+
+.createError {
+    border: 1px solid red;
+}

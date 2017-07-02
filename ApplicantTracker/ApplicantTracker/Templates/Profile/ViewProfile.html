@@ -1,0 +1,62 @@
+﻿<!--<div class="modal-header" style="background-color:#428bca;color:#ffffff">-->
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">x</button>
+    <!--<div class="row">
+        <button type="button" class="close col-md-12 text-right" ng-click="close()">x</button>
+    </div>-->
+    <div class="row" style="margin-right:0px">
+        <h4 class="col-md-4">Profile Id :{{SelectedProfile.ProfileId}}</h4>
+        <label class="modal-title control-label col-md-8 text-right">Status : {{SelectedProfile.CurrentStatus}}</label>
+    </div>
+
+    <!--<select id="disabledSelect" class="form-control">
+        <option value="0">Please Select</option>
+        <option value="1">Interview Scheduled</option>
+        <option value="2">Pending</option>
+        <option value="3">Offer Accepted</option>
+        <option value="4">Offer Rejected</option>
+
+    </select>-->
+    <!--<button type="button" class="close" ng-click="close()">x</button>-->
+
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Profile Information</h3>
+                <!--<span class="pull-right clickable"><i class="glyphicon" ng-class="{'glyphicon-chevron-up': IsInfoExpanded, 'glyphicon-chevron-down': !IsInfoExpanded}" ng-click="ToggleCandidateInfo()"></i></span>-->
+            </div>
+            <div class="panel-body" ng-show="IsInfoExpanded">
+                <div class="row">
+                    <label class="control-label col-md-4 text-left" for="Name">Company Name : {{SelectedProfile.CompanyName}}</label>
+                    <label class="control-label col-md-4 text-left" for="Name">Company Details : {{SelectedProfile.CompanyDetails}}</label>
+                    <label class="control-label col-md-4 text-left" for="MobileNumber">Date Of Interview : {{SelectedProfile.DateOfInterview}}</label>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-4" for="MobileNumber">Current Status :{{SelectedProfile.CurrentStatus}}</label>
+                    <label class="control-label col-md-4" for="CurrentEmployer">HR Copy : {{SelectedProfile.HRCopy}}</label>
+                    <label class="control-label col-md-4" for="HomeTown">Applied Position For : {{SelectedProfile.AppliedPositionFor}}</label>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-4" for="Email">Interviewer : {{SelectedProfile.Interviewer}}</label>
+                    <label class="control-label col-md-4" for="Email">Interviewer Contact Number : {{SelectedProfile.InterviewerContact}}</label>
+                    <label class="control-label col-md-4" for="CurrentLocation">Company Contact Number :{{SelectedProfile.CompanyContact}}</label>
+                </div>
+                <div class="row">   
+                    <label class="control-label col-md-4" for="CurrentEmployer">Reference Type :{{SelectedProfile.ReferenceType}}</label>
+                    <label class="control-label col-md-4" for="CurrentDesignation">Recruiter Name : {{SelectedProfile.RecruiterName}}</label>
+                    <label class="control-label col-md-4" for="CurrentCTC">Recruiter's Contact Number : {{SelectedProfile.RecruiterContact}}</label>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-4" for="Source">Team Lead Name : {{SelectedProfile.TeamLeadName}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary btnRounded" ng-click="cancel()">Close</button>
+</div>
+
